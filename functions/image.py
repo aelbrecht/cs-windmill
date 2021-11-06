@@ -26,6 +26,6 @@ def remove_noise_satellite(img):
 
 def get_filtered_satellite_float32(coord, block_size, img_data, dataset):
     img = get_satellite_raw_uint8(coord, block_size, img_data, dataset)
-    img = remove_noise_satellite(img)
+    img = remove_noise_satellite(img) / 255.0
     img = np.expand_dims(img, -1)
     return img

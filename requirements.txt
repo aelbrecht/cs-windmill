@@ -26,6 +26,7 @@ google-pasta==0.2.0
 grpcio==1.41.1
 h5py==3.1.0
 idna==3.3
+imageio==2.13.3
 ipykernel==6.2.0
 ipython==7.28.0
 ipython-genutils==0.2.0

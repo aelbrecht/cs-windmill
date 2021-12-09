@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Jeroen Goosens
+% May 2020
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[UKenglish]{babel}
+\usepackage{fontspec}
+\usepackage{titling}
+\usepackage{graphicx}
+\usepackage[a4paper, total={6.5in, 8in}]{geometry}
+\usepackage{xcolor}
+\usepackage{hyphenat}
+\usepackage{sectsty}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{xfrac}
+\usepackage{url}
+\setlength\parindent{0pt}
+\usepackage{booktabs,colortbl}
+\usepackage{breakurl}
+\usepackage{hyperref}
+\usepackage[nottoc,numbib]{tocbibind}
+
+\usepackage{lipsum}
+
+% Ghent University font
+\setmainfont{UGentPannoText}[
+    Extension = .ttf,
+    UprightFont = *-SemiLight,
+    BoldFont = *-SemiBold,
+    % full disclosure: this may not be distributable by Ghent university (license for italic font?)
+    ItalicFont = *-SemiLightItalic
+]
+
+% define Ghent University Blue
+\definecolor{ghent-university-blue}{RGB}{30,100,200}
+\chapterfont{\color{ghent-university-blue}}
+\sectionfont{\color{ghent-university-blue}}
+\subsectionfont{\color{ghent-university-blue}}
+\subsubsectionfont{\color{ghent-university-blue}}
+
+\begin{document}
+\input{titlepage}
+\tableofcontents
+\newpage
+\input{sections/introduction}
+\input{sections/sectionone}
+\input{sections/sectiontwo}
+\input{sections/sectionthree}
+\input{sections/conclusion}
+
+% % --------------------
+\bibliography{references.bib} 
+\bibliographystyle{ieeetr}
+% % --------------------
+
+\end{document}

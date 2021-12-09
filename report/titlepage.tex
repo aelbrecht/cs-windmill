@@ -1,0 +1,57 @@
+%%%%%% DATA to display
+\newcommand{\titlelineone}{Title line 1}
+\newcommand{\titlelinetwo}{Title Line 2}
+\author{Authors }
+\date{25 May 2020}
+% extra vars for frontpage
+\newcommand{\group}{group nr}
+\newcommand{\academicyear}{academic year}
+
+% extra cmds
+\newcommand\dunderline[3][-1pt]{{%
+  \setbox0=\hbox{#3}
+  \ooalign{\copy0\cr\rule[\dimexpr#1-#2\relax]{\wd0}{#2}}}}
+  
+\newcommand{\toupper}[1]{\expandafter\MakeUppercase
+                           \expandafter{#1}}
+
+\newgeometry{left=1.5cm,bottom=0.9cm, top=0.7cm}
+
+% LAYOUT
+\makeatletter
+\begin{titlepage}
+\includegraphics[width=0.24\textwidth]{assets/logo-fwe-nl.png}
+
+\vspace*{\fill}
+
+\vspace*{2cm}
+\Huge
+\color{ghent-university-blue}
+\hspace*{-0.1cm}\textbf{\dunderline[-3pt]{3pt}{\toupper{\titlelineone}}}\\
+\hspace*{-0.1cm}\textbf{\dunderline[-3pt]{3pt}{\toupper{\titlelinetwo}}}
+
+    
+\vspace{1cm}
+
+\huge
+\toupper{\group}
+
+\vspace{4cm}
+
+\color{black}
+\LARGE
+\@author
+
+\vspace{0.6cm}
+
+\large
+\academicyear
+
+\normalsize
+\vspace*{\fill}
+
+            
+   \includegraphics[width=0.19\textwidth]{assets/logo-ugent.png}
+\end{titlepage}
+\makeatother
+\restoregeometry

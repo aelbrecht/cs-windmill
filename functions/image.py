@@ -12,6 +12,24 @@ def get_satellite_raw_uint8(coord, block_size, img_data, dataset):
     return img
 
 
+def get_satellite_img(coord, block_size, img_data, dataset):
+    x, y = dataset.index(coord[0], coord[1])
+    img = img_data[x - block_size // 2:x + block_size // 2, y - block_size // 2:y + block_size // 2]
+    img = (img / np.max(img) * 255).astype(np.uint8)
+    return img
+
+
+def denoise_img(img):
+    return remove_noise_satellite(img)
+
+
+def get_training_img(coord, block_size, img_data, dataset):
+    img = get_satellite_img(coord, block_size, img_data, dataset)
+    img = remove_noise_satellite(img) / 255.0
+    img = np.expand_dims(img, -1)
+    return img
+
+
 def remove_noise_satellite(img):
     mask = img / 16
     mask = np.power(mask, 2)

@@ -17,35 +17,47 @@ block_size = 30
 
 class SatelliteData:
     _sat_path = ""
-    sat_img = None
-    sat_set = None
+    _sat_img = None
+    _sat_set = None
     _cov_path = ""
-    cov_img = None
-    cov_set = None
+    _cov_img = None
+    _cov_set = None
 
     def __init__(self, satellite_path: str = default_sat_path, land_coverage_path: str = default_land_cov_path):
         self._sat_path = satellite_path
         self._cov_path = land_coverage_path
         self._load_dataset()
 
+    def satellite_image(self):
+        return self._sat_img
+
+    def land_coverage_image(self):
+        return self._cov_img
+
+    def satellite(self):
+        return self._sat_set
+
+    def land_coverage(self):
+        return self._cov_set
+
     # loads datasets from disk
     def _load_dataset(self):
         # retrieve satellite data
-        self.sat_set = rasterio.open(self._sat_path)
-        self.sat_img = self.sat_set.read(1)
+        self._sat_set = rasterio.open(self._sat_path)
+        self._sat_img = self._sat_set.read(1)
 
         # retrieve land coverage data
         # https://lcviewer.vito.be/download
-        self.cov_set = rasterio.open(self._cov_path)
-        self.cov_img = self.cov_set.read(1)
+        self._cov_set = rasterio.open(self._cov_path)
+        self._cov_img = self._cov_set.read(1)
 
         # create bitmap from land coverage data
-        self.cov_img[self.cov_img != 200] = 0  # 200 is specified as "water-body"
-        self.cov_img[self.cov_img == 200] = 1
+        self._cov_img[self._cov_img != 200] = 0  # 200 is specified as "water-body"
+        self._cov_img[self._cov_img == 200] = 1
 
         # dilate land bitmap (using erode as ocean is 1 in this case)
         kernel = np.ones((5, 5), np.uint8)
-        self.cov_img = cv.erode(self.cov_img, kernel, iterations=5)  # 5 iterations seems to remove most beaches
+        self._cov_img = cv.erode(self._cov_img, kernel, iterations=5)  # 5 iterations seems to remove most beaches
 
 
 def load_samples(dataset_dir: str = default_examples_path):

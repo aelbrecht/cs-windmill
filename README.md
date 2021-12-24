@@ -77,6 +77,8 @@ s1a-iw-grd-vv-20211206t101739-20211206t101808-040887-04dadc-001.tiff
 To exclude land from when parsing a satellite image we use Copernicus Land Coverage data.  
 [https://lcviewer.vito.be/download](https://lcviewer.vito.be/download)
 
+![Land Coverage Examples](images/land-coverage.png)
+
 **North Sea** (including Denmark)  
 E000N60_PROBAV_LC100_global_v3.0.1_2019-nrt_Discrete-Classification-map_EPSG-4326.tif
 

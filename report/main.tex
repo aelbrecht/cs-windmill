@@ -1,61 +1,43 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Jeroen Goosens
-% May 2020
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[UKenglish]{babel}
-\usepackage{fontspec}
-\usepackage{titling}
+\documentclass{article}
+
+\usepackage{microtype}
 \usepackage{graphicx}
-\usepackage[a4paper, total={6.5in, 8in}]{geometry}
-\usepackage{xcolor}
-\usepackage{hyphenat}
-\usepackage{sectsty}
-\usepackage{float}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{amsmath}
-\usepackage{xfrac}
+\usepackage{subfigure}
+\usepackage{listings}
+\usepackage[breaklinks]{hyperref}
 \usepackage{url}
-\setlength\parindent{0pt}
-\usepackage{booktabs,colortbl}
+\def\UrlBreaks{\do\/\do-}
 \usepackage{breakurl}
-\usepackage{hyperref}
-\usepackage[nottoc,numbib]{tocbibind}
 
-\usepackage{lipsum}
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
 
-% Ghent University font
-\setmainfont{UGentPannoText}[
-    Extension = .ttf,
-    UprightFont = *-SemiLight,
-    BoldFont = *-SemiBold,
-    % full disclosure: this may not be distributable by Ghent university (license for italic font?)
-    ItalicFont = *-SemiLightItalic
-]
+\usepackage{icml2021}
 
-% define Ghent University Blue
-\definecolor{ghent-university-blue}{RGB}{30,100,200}
-\chapterfont{\color{ghent-university-blue}}
-\sectionfont{\color{ghent-university-blue}}
-\subsectionfont{\color{ghent-university-blue}}
-\subsubsectionfont{\color{ghent-university-blue}}
+\icmltitlerunning{Detecting windmill parks in the ocean on Sentinel satellite imagery}
 
 \begin{document}
-\input{titlepage}
-\tableofcontents
-\newpage
+
+\twocolumn[
+\icmltitle{Detecting windmill parks in the ocean on Sentinel satellite imagery}
+
+\icmlsetsymbol{equal}{*}
+
+\begin{icmlauthorlist}
+\icmlauthor{Aelbrecht Rudolf}{}
+\icmlauthor{Leclercq Frederic}{}
+\end{icmlauthorlist}
+
+\vskip 0.3in
+]
+
+\input{sections/abstract}
 \input{sections/introduction}
-\input{sections/sectionone}
-\input{sections/sectiontwo}
-\input{sections/sectionthree}
+\input{sections/related-work}
+\input{sections/methods}
+\input{sections/results}
 \input{sections/conclusion}
 
-% % --------------------
-\bibliography{references.bib} 
-\bibliographystyle{ieeetr}
-% % --------------------
+\bibliography{main}
+\bibliographystyle{icml2021}
 
 \end{document}
